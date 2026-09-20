@@ -1,21 +1,191 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111827"><title>50→60 PROJECT</title>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="50→60">
+<title>50→60 PROJECT</title>
+
+<!-- アプリ用ファビコン & Apple Touch Icon（SVG Data URI） -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'><rect width='512' height='512' rx='100' fill='%23111827'/><path d='M130 180 h100 v40 h-100 v-40 z M130 250 h100 v100 h-100 z' fill='%23facc15'/><text x='270' y='320' font-family='sans-serif' font-weight='900' font-size='200' fill='%23ffffff'>60</text><circle cx='410' cy='160' r='25' fill='%2322c55e'/></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'><rect width='512' height='512' rx='100' fill='%23111827'/><path d='M130 180 h100 v40 h-100 v-40 z M130 250 h100 v100 h-100 z' fill='%23facc15'/><text x='270' y='320' font-family='sans-serif' font-weight='900' font-size='200' fill='%23ffffff'>60</text><circle cx='410' cy='160' r='25' fill='%2322c55e'/></svg>">
+
+<!-- インラインWeb App Manifest Data URI (PWA用) -->
+<link rel="manifest" href="data:application/manifest+json;utf8,{"name":"50→60 PROJECT","short_name":"50→60","start_url":".","display":"standalone","background_color":"%23111827","theme_color":"%23111827","icons":[{"src":"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'><rect width='512' height='512' fill='%23111827'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='180' fill='%23facc15'>50→60</text></svg>","sizes":"512x512","type":"image/svg+xml"}]}">
+
 <style>
-:root{--bg:#f5f7fb;--card:#fff;--text:#111827;--muted:#6b7280;--line:#e5e7eb;--ok:#166534;--warn:#a16207;--idle:#64748b}*{box-sizing:border-box}html,body{height:100%;margin:0}body{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;background:var(--bg);color:var(--text);overflow:hidden}.app{height:100dvh;display:flex;flex-direction:column;overflow:hidden}header{position:fixed;z-index:1000;top:0;left:0;right:0;background:#f5f7fb;border-bottom:1px solid var(--line);padding:12px 14px}h1{margin:0;font-size:21px}.sub{font-size:12px;color:var(--muted);margin-top:2px}.topbtn{position:absolute;right:12px;top:12px;border:1px solid var(--line);background:white;border-radius:999px;padding:7px 10px;font-weight:700}.fixed{position:fixed;z-index:999;left:0;right:0;background:rgba(245,247,251,.98);border-bottom:1px solid var(--line);padding:10px 12px 8px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px}@media(max-width:700px){.summary{grid-template-columns:repeat(2,1fr)}}.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px}.big{font-size:24px;font-weight:800}.label,.small{font-size:11px;color:var(--muted)}.progress{height:8px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin-top:6px}.bar{height:100%;background:#111827;width:0}.controls{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}.controls::-webkit-scrollbar{display:none}.controls button,.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 10px;white-space:nowrap;font-weight:700;font-size:12px}.controls button.active{background:#111827;color:white}.toolbar{display:grid;grid-template-columns:1fr auto auto;gap:8px}.toolbar input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:white;font-size:15px}.manage{border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--text);padding:0 12px;font-weight:800}.add{border:0;border-radius:11px;background:#111827;color:#fff;padding:0 14px;font-weight:800}.scroll{position:fixed;left:0;right:0;bottom:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 12px 92px}.section{margin-top:8px}.status-section{margin-bottom:18px}.status-section>h2{position:sticky;top:0;z-index:2;background:var(--bg);padding:8px 2px 6px;border-bottom:1px solid var(--line)}.section h2{font-size:16px;margin:10px 2px 8px}.goal{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:10px}.row{display:flex;gap:10px;align-items:flex-start}.status-dot{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;font-size:14px;font-weight:900;border:2px solid #cbd5e1;background:white}.goal.todo .status-dot{color:var(--idle)}.goal.doing .status-dot{background:#fef3c7;border-color:#f59e0b;color:var(--warn)}.goal.done .status-dot{background:#166534;border-color:#166534;color:white}.title{font-weight:800;line-height:1.35}.meta{font-size:12px;color:var(--muted);margin-top:6px;white-space:pre-wrap}.statusline{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.statusline button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:700}.statusline button.on.todo{background:#f1f5f9}.statusline button.on.doing{background:#fef3c7;border-color:#f59e0b}.statusline button.on.done{background:#dcfce7;border-color:#22c55e;color:#166534}.actions{display:flex;gap:8px;margin-top:9px;flex-wrap:wrap}.actions button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 10px;font-size:12px}.done-badge{display:inline-block;padding:4px 8px;border-radius:999px;background:#dcfce7;color:#166534;font-size:11px;font-weight:800;margin-top:6px}.photo{margin-top:8px;width:100%;max-height:220px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}.empty{color:var(--muted);text-align:center;padding:30px}.fab{position:fixed;right:18px;bottom:18px;border:0;border-radius:50%;width:58px;height:58px;background:#111827;color:#fff;font-size:30px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:20}dialog{border:0;border-radius:18px;width:min(92vw,520px);padding:0;box-shadow:0 20px 60px rgba(0,0,0,.3)}dialog::backdrop{background:rgba(0,0,0,.35)}.modal{padding:18px;max-height:85dvh;overflow:auto}.modal h3{margin:0 0 14px}.field{margin:12px 0}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}.field input,.field select,.field textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}.category-list{display:flex;flex-direction:column;gap:8px}.category-item{display:flex;align-items:center;gap:8px;padding:10px 11px;border:1px solid var(--line);border-radius:12px;background:#f8fafc}.category-name{flex:1;min-width:0;font-weight:800;overflow:hidden;text-overflow:ellipsis}.category-item button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 9px;font-size:12px;font-weight:700}.category-item button.danger{color:#b91c1c}.category-note{font-size:11px;color:var(--muted);margin-top:5px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}.danger{color:#b91c1c}.preview{display:none;margin-top:8px;width:100%;max-height:240px;object-fit:cover;border-radius:12px}.lock{position:fixed;inset:0;background:#111827;z-index:100000;display:flex;align-items:center;justify-content:center;padding:24px;overflow-y:auto;overscroll-behavior:contain}.lockcard{position:relative;z-index:100001;width:min(92vw,420px);max-height:calc(100dvh - 48px);overflow-y:auto;background:#fff;border-radius:20px;padding:24px;margin:auto;box-shadow:0 20px 60px rgba(0,0,0,.45)}.lockcard h2{margin:0 0 8px}.lockcard p{color:#6b7280;font-size:14px;line-height:1.5}.lockcard input{width:100%;font-size:22px;letter-spacing:4px;padding:14px;border:1px solid #d1d5db;border-radius:12px;text-align:center}.lockcard button{width:100%;margin-top:12px;padding:13px;border:0;border-radius:12px;background:#111827;color:#fff;font-weight:800}.err{color:#b91c1c;font-size:13px;min-height:20px;margin-top:8px}
+:root{--bg:#f5f7fb;--card:#fff;--text:#111827;--muted:#6b7280;--line:#e5e7eb;--ok:#166534;--warn:#a16207;--idle:#64748b}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;background:var(--bg);color:var(--text);overflow:hidden}
+.app{height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+header{position:fixed;z-index:1000;top:0;left:0;right:0;background:#f5f7fb;border-bottom:1px solid var(--line);padding:12px 14px}
+.header-top{display:flex;justify-content:space-between;align-items:flex-start}
+h1{margin:0;font-size:21px;display:flex;align-items:center;gap:8px}
+.sub{font-size:12px;color:var(--muted);margin-top:2px}
+.app-icon-img{width:26px;height:26px;border-radius:6px;vertical-align:middle}
+.header-right{display:flex;align-items:center;gap:8px}
+.topbtn{border:1px solid var(--line);background:white;border-radius:999px;padding:6px 12px;font-weight:700;font-size:12px;cursor:pointer}
+
+/* トレーニングアプリ起動バー */
+.app-launcher-bar{display:flex;align-items:center;gap:6px;margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);overflow-x:auto;scrollbar-width:none}
+.app-launcher-bar::-webkit-scrollbar{display:none}
+.launcher-title{font-size:11px;font-weight:800;color:var(--muted);white-space:nowrap;margin-right:2px}
+.app-link-btn{display:inline-flex;align-items:center;gap:5px;background:#ffffff;border:1px solid var(--line);padding:4px 8px;border-radius:8px;text-decoration:none;color:var(--text);font-size:11px;font-weight:700;white-space:nowrap;transition:all 0.2s ease}
+.app-link-btn:hover,.app-link-btn:active{background:#f1f5f9;border-color:#cbd5e1}
+.app-link-btn svg{width:14px;height:14px;flex-shrink:0}
+
+.fixed{position:fixed;z-index:999;left:0;right:0;background:rgba(245,247,251,.98);border-bottom:1px solid var(--line);padding:10px 12px 8px}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px}
+@media(max-width:700px){.summary{grid-template-columns:repeat(2,1fr)}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.big{font-size:24px;font-weight:800}
+.label,.small{font-size:11px;color:var(--muted)}
+.progress{height:8px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin-top:6px}
+.bar{height:100%;background:#111827;width:0}
+.controls{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.controls::-webkit-scrollbar{display:none}
+.controls button,.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 10px;white-space:nowrap;font-weight:700;font-size:12px;cursor:pointer}
+.controls button.active{background:#111827;color:white}
+.toolbar{display:grid;grid-template-columns:1fr auto auto;gap:8px}
+.toolbar input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:white;font-size:15px}
+.manage{border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--text);padding:0 12px;font-weight:800;cursor:pointer}
+.add{border:0;border-radius:11px;background:#111827;color:#fff;padding:0 14px;font-weight:800;cursor:pointer}
+.scroll{position:fixed;left:0;right:0;bottom:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 12px 92px}
+.section{margin-top:8px}
+.status-section{margin-bottom:18px}
+.status-section>h2{position:sticky;top:0;z-index:2;background:var(--bg);padding:8px 2px 6px;border-bottom:1px solid var(--line)}
+.section h2{font-size:16px;margin:10px 2px 8px}
+.goal{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:10px}
+.row{display:flex;gap:10px;align-items:flex-start}
+.status-dot{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;font-size:14px;font-weight:900;border:2px solid #cbd5e1;background:white}
+.goal.todo .status-dot{color:var(--idle)}
+.goal.doing .status-dot{background:#fef3c7;border-color:#f59e0b;color:var(--warn)}
+.goal.done .status-dot{background:#166534;border-color:#166534;color:white}
+.title{font-weight:800;line-height:1.35}
+.meta{font-size:12px;color:var(--muted);margin-top:6px;white-space:pre-wrap}
+.statusline{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.statusline button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:700;cursor:pointer}
+.statusline button.on.todo{background:#f1f5f9}
+.statusline button.on.doing{background:#fef3c7;border-color:#f59e0b}
+.statusline button.on.done{background:#dcfce7;border-color:#22c55e;color:#166534}
+.actions{display:flex;gap:8px;margin-top:9px;flex-wrap:wrap}
+.actions button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 10px;font-size:12px;cursor:pointer}
+.done-badge{display:inline-block;padding:4px 8px;border-radius:999px;background:#dcfce7;color:#166534;font-size:11px;font-weight:800;margin-top:6px}
+.photo{margin-top:8px;width:100%;max-height:220px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.empty{color:var(--muted);text-align:center;padding:30px}
+.fab{position:fixed;right:18px;bottom:18px;border:0;border-radius:50%;width:58px;height:58px;background:#111827;color:#fff;font-size:30px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:20;cursor:pointer}
+dialog{border:0;border-radius:18px;width:min(92vw,520px);padding:0;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+dialog::backdrop{background:rgba(0,0,0,.35)}
+.modal{padding:18px;max-height:85dvh;overflow:auto}
+.modal h3{margin:0 0 14px}
+.field{margin:12px 0}
+.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}
+.field input,.field select,.field textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+.category-list{display:flex;flex-direction:column;gap:8px}
+.category-item{display:flex;align-items:center;gap:8px;padding:10px 11px;border:1px solid var(--line);border-radius:12px;background:#f8fafc}
+.category-name{flex:1;min-width:0;font-weight:800;overflow:hidden;text-overflow:ellipsis}
+.category-item button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 9px;font-size:12px;font-weight:700;cursor:pointer}
+.category-item button.danger{color:#b91c1c}
+.category-note{font-size:11px;color:var(--muted);margin-top:5px}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}
+.danger{color:#b91c1c}
+.preview{display:none;margin-top:8px;width:100%;max-height:240px;object-fit:cover;border-radius:12px}
+.lock{position:fixed;inset:0;background:#111827;z-index:100000;display:flex;align-items:center;justify-content:center;padding:24px;overflow-y:auto;overscroll-behavior:contain}
+.lockcard{position:relative;z-index:100001;width:min(92vw,420px);max-height:calc(100dvh - 48px);overflow-y:auto;background:#fff;border-radius:20px;padding:24px;margin:auto;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.lockcard h2{margin:0 0 8px}
+.lockcard p{color:#6b7280;font-size:14px;line-height:1.5}
+.lockcard input{width:100%;font-size:22px;letter-spacing:4px;padding:14px;border:1px solid #d1d5db;border-radius:12px;text-align:center}
+.lockcard button{width:100%;margin-top:12px;padding:13px;border:0;border-radius:12px;background:#111827;color:#fff;font-weight:800;cursor:pointer}
+.err{color:#b91c1c;font-size:13px;min-height:20px;margin-top:8px}
 
 .top10{background:linear-gradient(135deg,#fff7df,#fff);border:2px solid #f2b632;border-radius:18px;padding:14px;margin:2px 0 18px;box-shadow:0 5px 18px rgba(0,0,0,.08)}
 .top10-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
-.top10-head strong{font-size:20px}.top10-badge{background:#facc15;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:900}
+.top10-head strong{font-size:20px}
+.top10-badge{background:#facc15;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:900}
 .top10-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .priority{background:white;border:1px solid #ead7a3;border-radius:13px;padding:10px;min-width:0}
 .priority .rank{display:inline-grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#fde68a;font-weight:900;margin-right:5px}
-.priority .ptitle{font-weight:900;font-size:13px}.priority .pgoal{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.35}
+.priority .ptitle{font-weight:900;font-size:13px}
+.priority .pgoal{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.35}
 .priority .pstatus{font-size:11px;font-weight:800;margin-top:7px}
 @media(max-width:430px){.top10-grid{grid-template-columns:1fr}.top10-head strong{font-size:18px}}
-</style></head><body>
+</style>
+</head>
+<body>
+
 <div id="lock" class="lock"><div class="lockcard"><h2 id="lockTitle">50→60 PROJECT</h2><p id="lockMsg">初回のみ、自分専用のPINを設定してください。6桁以上をおすすめします。</p><input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="PIN"><button id="unlockBtn">開始</button><div id="err" class="err"></div><p class="small">PINを忘れると暗号化したデータを復元できません。</p></div></div>
-<div class="app"><header><h1>50→60 PROJECT</h1><div class="sub">60歳までに育てていく目標リスト（100＋）</div><button id="lockBtn" class="topbtn">🔒 ロック</button></header><div class="fixed"><div class="summary"><div class="box"><div class="label">✅ 達成</div><div class="big"><span id="doneCount">0</span> / <span id="totalCount">0</span></div><div class="progress"><div id="bar" class="bar"></div></div></div><div class="box"><div class="label">🟡 挑戦中</div><div class="big" id="doingCount">0</div><div class="small">取り組み中</div></div><div class="box"><div class="label">⬜ 未着手</div><div class="big" id="todoCount">0</div><div class="small">これから始める</div></div><div class="box"><div class="label">達成率</div><div class="big" id="pct">0%</div><div class="small" id="encourage">ここから始めよう</div></div></div><div class="controls" id="categoryFilters"></div><div class="toolbar"><input id="search" placeholder="目標を検索"><button class="manage" id="categoryBtn">カテゴリー管理</button><button class="add" id="addBtn">追加</button></div></div><div class="scroll" id="scrollArea"><div id="top10"></div><div id="list"></div></div></div><button class="fab" id="fab">＋</button>
+
+<div class="app">
+<header id="mainHeader">
+  <div class="header-top">
+    <div>
+      <h1>
+        <svg class="app-icon-img" viewBox="0 0 512 512"><rect width="512" height="512" rx="100" fill="#111827"/><path d="M130 180 h100 v40 h-100 v-40 z M130 250 h100 v100 h-100 z" fill="#facc15"/><text x="270" y="320" font-family="sans-serif" font-weight="900" font-size="200" fill="#ffffff">60</text><circle cx="410" cy="160" r="25" fill="#22c55e"/></svg>
+        50→60 PROJECT
+      </h1>
+      <div class="sub">60歳までに育てていく目標リスト（100＋）</div>
+    </div>
+    <div class="header-right">
+      <button id="lockBtn" class="topbtn">🔒 ロック</button>
+    </div>
+  </div>
+
+  <!-- トレーニング・フィットネスアプリ起動バー -->
+  <div class="app-launcher-bar">
+    <span class="launcher-title">🚀 アプリ連携:</span>
+    <a href="strava://" class="app-link-btn" title="Stravaを開く" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="#fc4c02"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7.92 15.602h4.172"/></svg>
+      Strava
+    </a>
+    <a href="nike-run-club://" class="app-link-btn" title="Nike Run Club" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="#111827"><path d="M21.707 11.293l-8-8A1 1 0 0012 3H3a1 1 0 00-1 1v9a1 1 0 00.293.707l8 8a1 1 0 001.414 0l8.414-8.414a1 1 0 000-1.414zM12 19.586l-7-7V5h7.586l7 7-7.586 7.586z"/></svg>
+      Nike Run
+    </a>
+    <a href="garminconnect://" class="app-link-btn" title="Garmin Connect" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="#007cc3"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+      Garmin
+    </a>
+    <a href="x-apple-health://" class="app-link-btn" title="Apple ヘルスケア" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="#ff2d55"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      ヘルスケア
+    </a>
+  </div>
+</header>
+
+<div class="fixed">
+  <div class="summary">
+    <div class="box"><div class="label">✅ 達成</div><div class="big"><span id="doneCount">0</span> / <span id="totalCount">0</span></div><div class="progress"><div id="bar" class="bar"></div></div></div>
+    <div class="box"><div class="label">🟡 挑戦中</div><div class="big" id="doingCount">0</div><div class="small">取り組み中</div></div>
+    <div class="box"><div class="label">⬜ 未着手</div><div class="big" id="todoCount">0</div><div class="small">これから始める</div></div>
+    <div class="box"><div class="label">達成率</div><div class="big" id="pct">0%</div><div class="small" id="encourage">ここから始めよう</div></div>
+  </div>
+  <div class="controls" id="categoryFilters"></div>
+  <div class="toolbar">
+    <input id="search" placeholder="目標を検索">
+    <button class="manage" id="categoryBtn">カテゴリー管理</button>
+    <button class="add" id="addBtn">追加</button>
+  </div>
+</div>
+
+<div class="scroll" id="scrollArea">
+  <div id="top10"></div>
+  <div id="list"></div>
+</div>
+</div>
+
+<button class="fab" id="fab">＋</button>
+
+<!-- ダイアログモーダル群 -->
 <dialog id="goalDialog"><form method="dialog" class="modal" id="goalForm"><h3 id="dialogTitle">目標を追加</h3><input type="hidden" id="goalId"><div class="field"><label>目標</label><input id="goalTitle" required></div><div class="field"><label>ジャンル</label><select id="goalCategory"></select></div><div class="field"><label>目標メモ</label><textarea id="goalNote" rows="3" placeholder="理由、達成条件など"></textarea></div><div class="modal-actions"><button type="button" id="goalCancel">キャンセル</button><button id="saveBtn" class="btn" value="default">保存</button></div></form></dialog>
-<dialog id="categoryDialog"><form method="dialog" class="modal" id="categoryForm"><h3>カテゴリー管理</h3><div class="small" style="margin-bottom:10px">カテゴリーを追加・名前変更・削除できます。既存の目標があるカテゴリーを削除する場合は、目標を別カテゴリーへ移してから削除します。</div><div id="categoryList" class="category-list"></div><div class="field"><label>新しいカテゴリー</label><div style="display:grid;grid-template-columns:1fr auto;gap:8px"><input id="newCategory" placeholder="例：50代の学び"><button type="button" class="btn" id="addCategoryBtn">追加</button></div></div><div class="modal-actions"><button type="button" id="categoryClose">閉じる</button></div></form></dialog><dialog id="achievementDialog"><form method="dialog" class="modal" id="achievementForm"><h3>🏆 達成記録を残す</h3><input type="hidden" id="achievementId"><div class="field"><label>達成日</label><input id="achievementDate" type="date" required></div><div class="field"><label>一言メモ</label><textarea id="achievementMemo" rows="3" placeholder="どんな気持ちだったか、記録しておきたいこと"></textarea></div><div class="field"><label>写真</label><input id="achievementPhoto" type="file" accept="image/*"><img id="photoPreview" class="preview" alt="写真プレビュー"><div class="small">写真は保存時に自動で縮小し、PINで暗号化して端末内に保存します。</div></div><div class="field" style="padding:12px;border:1px solid var(--line);border-radius:12px;background:#f8fafc"><label style="display:flex;gap:8px;align-items:center;color:var(--text);font-weight:800"><input id="addNextGoal" type="checkbox" checked style="width:auto"> この達成を次の目標につなげる</label><div id="nextGoalFields"><label style="margin-top:10px">次の目標</label><input id="nextGoalTitle" placeholder="例：10kmを55分以内で走る"><label style="margin-top:10px">ジャンル</label><select id="nextGoalCategory"></select><div class="small" style="margin-top:6px">達成済みの目標はそのまま実績として残り、新しい目標が追加されます。</div></div></div><div class="modal-actions"><button type="button" id="achievementCancel">キャンセル</button><button id="achievementSave" class="btn" value="default">達成として保存</button></div></form></dialog>
+
+<dialog id="categoryDialog"><form method="dialog" class="modal" id="categoryForm"><h3>カテゴリー管理</h3><div class="small" style="margin-bottom:10px">カテゴリーを追加・名前変更・削除できます。既存の目標があるカテゴリーを削除する場合は、目標を別カテゴリーへ移してから削除します。</div><div id="categoryList" class="category-list"></div><div class="field"><label>新しいカテゴリー</label><div style="display:grid;grid-template-columns:1fr auto;gap:8px"><input id="newCategory" placeholder="例：50代の学び"><button type="button" class="btn" id="addCategoryBtn">追加</button></div></div><div class="modal-actions"><button type="button" id="categoryClose">閉じる</button></div></form></dialog>
+
+<dialog id="achievementDialog"><form method="dialog" class="modal" id="achievementForm"><h3>🏆 達成記録を残す</h3><input type="hidden" id="achievementId"><div class="field"><label>達成日</label><input id="achievementDate" type="date" required></div><div class="field"><label>一言メモ</label><textarea id="achievementMemo" rows="3" placeholder="どんな気持ちだったか、記録しておきたいこと"></textarea></div><div class="field"><label>写真</label><input id="achievementPhoto" type="file" accept="image/*"><img id="photoPreview" class="preview" alt="写真プレビュー"><div class="small">写真は保存時に自動で縮小し、PINで暗号化して端末内に保存します。</div></div><div class="field" style="padding:12px;border:1px solid var(--line);border-radius:12px;background:#f8fafc"><label style="display:flex;gap:8px;align-items:center;color:var(--text);font-weight:800"><input id="addNextGoal" type="checkbox" checked style="width:auto"> この達成を次の目標につなげる</label><div id="nextGoalFields"><label style="margin-top:10px">次の目標</label><input id="nextGoalTitle" placeholder="例：10kmを55分以内で走る"><label style="margin-top:10px">ジャンル</label><select id="nextGoalCategory"></select><div class="small" style="margin-top:6px">達成済みの目標はそのまま実績として残り、新しい目標が追加されます。</div></div></div><div class="modal-actions"><button type="button" id="achievementCancel">キャンセル</button><button id="achievementSave" class="btn" value="default">達成として保存</button></div></form></dialog>
+
 <script>
 const categories=['50歳の1年目','健康・身体','心・生活習慣','妻・夫婦','娘たち','お金・資産形成','仕事','副収入・第二の仕事','AI・新しいスキル','趣味・旅行・経験','住まい・人生'];
 const seed=[
@@ -36,7 +206,7 @@ async function keyFromPin(pin,salt){const km=await crypto.subtle.importKey('raw'
 function freshGoals(){return seed.map(x=>({id:crypto.randomUUID(),category:x[0],title:x[1],note:'',status:'todo',doneDate:'',achievementMemo:'',photo:''}))}
 function migrate(payload){const list=Array.isArray(payload)?payload:(payload?.goals||[]);if(payload?.categories?.length)categories.splice(0,categories.length,...payload.categories);return list.map(g=>({...g,status:g.status||(g.done?'done':'todo'),doneDate:g.doneDate||'',achievementMemo:g.achievementMemo||'',photo:g.photo||''}))}
 async function save(){if(!sessionKey)return;const iv=crypto.getRandomValues(new Uint8Array(12));const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},sessionKey,enc.encode(JSON.stringify({goals,categories})));localStorage.setItem(STORE,JSON.stringify({iv:b64(iv),ct:b64(ct)}))}
-async function unlock(){const pin=document.getElementById('pin').value.trim(),err=document.getElementById('err');err.textContent='';if(pin.length<6){err.textContent='PINは6桁以上にしてください';return}let salt=localStorage.getItem(SALT);if(!salt){salt=b64(crypto.getRandomValues(new Uint8Array(16)));localStorage.setItem(SALT,salt);sessionKey=await keyFromPin(pin,unb64(salt));goals=freshGoals();await save()}else{try{sessionKey=await keyFromPin(pin,unb64(salt));const raw=localStorage.getItem(STORE);if(raw){const o=JSON.parse(raw);const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:unb64(o.iv)},sessionKey,unb64(o.ct));goals=migrate(JSON.parse(dec.decode(pt)));await save()}else{goals=freshGoals();await save()}}catch(e){sessionKey=null;err.textContent='PINが違います';return}}document.getElementById('lock').style.display='none';document.getElementById('pin').value='';render()}
+async function unlock(){const pin=document.getElementById('pin').value.trim(),err=document.getElementById('err');err.textContent='';if(pin.length<6){err.textContent='PINは6桁以上にしてください';return}let salt=localStorage.getItem(SALT);if(!salt){salt=b64(crypto.getRandomValues(new Uint8Array(16)));localStorage.setItem(SALT,salt);sessionKey=await keyFromPin(pin,unb64(salt));goals=freshGoals();await save()}else{try{sessionKey=await keyFromPin(pin,unb64(salt));const raw=localStorage.getItem(STORE);if(raw){const o=JSON.parse(raw);const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:unb64(o.iv)},sessionKey,unb64(o.ct));goals=migrate(JSON.parse(dec.decode(pt)));await save()}else{goals=freshGoals();await save()}}catch(e){sessionKey=null;err.textContent='PINが違います';return}}document.getElementById('lock').style.display='none';document.getElementById('pin').value='';render();updateFixedLayout();}
 function lock(){sessionKey=null;goals=[];document.getElementById('lockTitle').textContent='ロック中';document.getElementById('lockMsg').textContent='PINを入力してください。';document.getElementById('lock').style.display='grid';document.getElementById('pin').focus()}
 function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function statusIcon(s){return s==='done'?'✓':s==='doing'?'●':'○'} function statusText(s){return s==='done'?'達成！':s==='doing'?'挑戦中':'未着手'}
@@ -115,5 +285,6 @@ window.addEventListener('orientationchange', ()=>setTimeout(updateFixedLayout,10
 if(document.fonts && document.fonts.ready) document.fonts.ready.then(updateFixedLayout);
 setTimeout(updateFixedLayout,0);
 setTimeout(updateFixedLayout,250);
-
-</script></body></html>
+</script>
+</body>
+</html>
