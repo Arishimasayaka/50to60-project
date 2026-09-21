@@ -15,7 +15,7 @@ header{position:fixed;z-index:1000;top:0;left:0;right:0;background:#f5f7fb;borde
 .statusline{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.statusline button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:700;cursor:pointer}.statusline button.on.todo{background:#f1f5f9}.statusline button.on.doing{background:#fef3c7;border-color:#f59e0b}.statusline button.on.done{background:#dcfce7;border-color:#22c55e;color:#166534}
 .actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}.actions button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 8px;font-size:11px;cursor:pointer}.done-badge{display:inline-block;padding:3px 7px;border-radius:999px;background:#dcfce7;color:#166534;font-size:10px;font-weight:800;margin-top:4px}.photo{margin-top:6px;width:100%;max-height:180px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.empty{color:var(--muted);text-align:center;padding:20px;font-size:12px}
 .fab{position:fixed;right:16px;bottom:16px;border:0;border-radius:50%;width:52px;height:52px;background:#111827;color:#fff;font-size:26px;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:20;cursor:pointer}
-dialog{border:0;border-radius:16px;width:min(92vw,480px);padding:0;box-shadow:0 20px 60px rgba(0,0,0,.3)}dialog::backdrop{background:rgba(0,0,0,.35)}.modal{padding:16px;max-height:85dvh;overflow:auto}.modal h3{margin:0 0 12px;font-size:16px}.field{margin:10px 0}.field label{display:block;font-size:11px;color:var(--muted);margin-bottom:4px}.field input,.field select,.field textarea{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:9px;font:inherit;font-size:13px}.category-list{display:flex;flex-direction:column;gap:6px}.category-item{display:flex;align-items:center;gap:6px;padding:8px;border:1px solid var(--line);border-radius:10px;background:#f8fafc}.category-name{flex:1;min-width:0;font-weight:800;font-size:12px;overflow:hidden;text-overflow:ellipsis}.category-item button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:4px 8px;font-size:11px;font-weight:700}.modal-actions{display:flex;justify-content:flex-end;gap:6px;margin-top:14px}.danger{color:#b91c1c}.preview{display:none;margin-top:6px;width:100%;max-height:200px;object-fit:cover;border-radius:10px}
+dialog{border:0;border-radius:16px;width:min(92vw,480px);padding:0;box-shadow:0 20px 60px rgba(0,0,0,.3)}dialog::backdrop{background:rgba(0,0,0,.35)}.modal{padding:16px;max-height:85dvh;overflow:auto}.modal h3{margin:0 0 12px;font-size:16px}.field{margin:10px 0}.field label{display:block;font-size:11px;color:var(--muted);margin-bottom:4px}.field input,.field select,.field textarea{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:9px;font:inherit;font-size:13px}.category-list{display:flex;flex-direction:column;gap:6px}.category-item{display:flex;align-items:center;gap:6px;padding:8px;border:1px solid var(--line);border-radius:10px;background:#f8fafc}.category-name{flex:1;min-width:0;font-weight:800;font-size:12px;overflow:hidden;text-overflow:ellipsis}.category-actions{display:flex;gap:4px}.category-item button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 7px;font-size:11px;font-weight:700;cursor:pointer}.category-item button:disabled{opacity:0.4;cursor:not-allowed}.modal-actions{display:flex;justify-content:flex-end;gap:6px;margin-top:14px}.danger{color:#b91c1c}.preview{display:none;margin-top:6px;width:100%;max-height:200px;object-fit:cover;border-radius:10px}
 .lock{position:fixed;inset:0;background:#111827;z-index:100000;display:flex;align-items:center;justify-content:center;padding:20px}.lockcard{position:relative;z-index:100001;width:min(92vw,380px);background:#fff;border-radius:18px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.45)}.lockcard h2{margin:0 0 6px;font-size:18px}.lockcard p{color:#6b7280;font-size:13px;line-height:1.4}.lockcard input{width:100%;font-size:20px;letter-spacing:4px;padding:12px;border:1px solid #d1d5db;border-radius:10px;text-align:center}.lockcard button{width:100%;margin-top:10px;padding:12px;border:0;border-radius:10px;background:#111827;color:#fff;font-weight:800}.err{color:#b91c1c;font-size:12px;min-height:18px;margin-top:6px}
 .top10{background:linear-gradient(135deg,#fff7df,#fff);border:2px solid #f2b632;border-radius:14px;padding:12px;margin:2px 0 14px;box-shadow:0 4px 14px rgba(0,0,0,.06)}.top10-head{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:8px}.top10-head strong{font-size:16px}.top10-badge{background:#facc15;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:900}.top10-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}.priority{background:white;border:1px solid #ead7a3;border-radius:10px;padding:8px;min-width:0}.priority .rank{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#fde68a;font-weight:900;font-size:10px;margin-right:4px}.priority .ptitle{font-weight:900;font-size:11px}.priority .pgoal{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.3}.priority .pstatus{font-size:10px;font-weight:800;margin-top:5px}@media(max-width:430px){.top10-grid{grid-template-columns:1fr}}
 </style></head><body>
@@ -29,7 +29,7 @@ dialog{border:0;border-radius:16px;width:min(92vw,480px);padding:0;box-shadow:0 
     <div class="box-mini"><div class="label">達成率</div><div class="val" id="pct">0%</div></div>
   </div>
   <div class="controls" id="categoryFilters"></div>
-  <div class="toolbar"><input id="search" placeholder="目標を検索"><button class="manage" id="categoryBtn">カテゴリ</button><button class="add" id="addBtn">追加</button></div>
+  <div class="toolbar"><input id="search" placeholder="目標を検索"><button class="manage" id="categoryBtn">カテゴリ管理</button><button class="add" id="addBtn">追加</button></div>
 </div>
 <div class="scroll" id="scrollArea">
   <div id="routineArea"></div>
@@ -39,7 +39,7 @@ dialog{border:0;border-radius:16px;width:min(92vw,480px);padding:0;box-shadow:0 
 <button class="fab" id="fab">＋</button>
 
 <dialog id="goalDialog"><form method="dialog" class="modal" id="goalForm"><h3 id="dialogTitle">目標を追加</h3><input type="hidden" id="goalId"><div class="field"><label>目標</label><input id="goalTitle" required></div><div class="field"><label>ジャンル</label><select id="goalCategory"></select></div><div class="field"><label>定期繰り返し設定</label><select id="goalRepeat"><option value="none">繰り返しなし</option><option value="weekly">毎週タスク（週1回など）</option><option value="monthly">毎月タスク（月1回など）</option><option value="yearly">毎年タスク（年1回など）</option></select></div><div class="field"><label>目標メモ</label><textarea id="goalNote" rows="2" placeholder="理由、達成条件など"></textarea></div><div class="modal-actions"><button type="button" id="goalCancel">キャンセル</button><button id="saveBtn" class="btn" value="default">保存</button></div></form></dialog>
-<dialog id="categoryDialog"><form method="dialog" class="modal" id="categoryForm"><h3>カテゴリー管理</h3><div id="categoryList" class="category-list"></div><div class="field"><label>新しいカテゴリー</label><div style="display:grid;grid-template-columns:1fr auto;gap:6px"><input id="newCategory" placeholder="例：50代の学び"><button type="button" class="btn" id="addCategoryBtn">追加</button></div></div><div class="modal-actions"><button type="button" id="categoryClose">閉じる</button></div></form></dialog>
+<dialog id="categoryDialog"><form method="dialog" class="modal" id="categoryForm"><h3>カテゴリー管理</h3><div style="font-size:10px;color:var(--muted);margin-bottom:8px">名前の変更・順序の並び替え・削除ができます。</div><div id="categoryList" class="category-list"></div><div class="field"><label>新しいカテゴリーを追加</label><div style="display:grid;grid-template-columns:1fr auto;gap:6px"><input id="newCategory" placeholder="例：50代の学び"><button type="button" class="btn" id="addCategoryBtn">追加</button></div></div><div class="modal-actions"><button type="button" id="categoryClose">閉じる</button></div></form></dialog>
 <dialog id="achievementDialog"><form method="dialog" class="modal" id="achievementForm"><h3>🏆 達成記録を残す</h3><input type="hidden" id="achievementId"><div class="field"><label>達成日</label><input id="achievementDate" type="date" required></div><div class="field"><label>一言メモ</label><textarea id="achievementMemo" rows="2" placeholder="どんな気持ちだったか、記録しておきたいこと"></textarea></div><div class="field"><label>写真</label><input id="achievementPhoto" type="file" accept="image/*"><img id="photoPreview" class="preview" alt="写真プレビュー"></div><div class="modal-actions"><button type="button" id="achievementCancel">キャンセル</button><button id="achievementSave" class="btn" value="default">達成として保存</button></div></form></dialog>
 
 <script>
@@ -60,7 +60,7 @@ const seed=[
 ['副収入・第二の仕事','noteを始める','none'],['副収入・第二の仕事','まず100記事書く','none'],['副収入・第二の仕事','初めて自分の記事から1円を稼ぐ','none'],['副収入・第二の仕事','月€100の副収入を作る','none'],['副収入・第二の仕事','月€500にする','none'],['副収入・第二の仕事','月€1,000を目指す','none'],['副収入・第二の仕事','自分が働いていない時間にも入ってくる収入源を一つ作る','none'],
 ['AI・新しいスキル','AIを日常的に仕事で使えるようになる','none'],['AI・新しいスキル','AIを使って簡単なアプリを完成させる','none'],['AI・新しいスキル','自分用の筋トレアプリを完成させる','none'],['AI・新しいスキル','家族用献立アプリを完成させる','none'],['AI・新しいスキル','AIによる業務自動化を一つ実用化する','none'],['AI・新しいスキル','データ分析能力をさらに伸ばす','none'],['AI・新しいスキル','AIで画像・動画制作を覚える','none'],['AI・新しいスキル','ノーコード/ローコードを覚える','none'],['AI・新しいスキル','自分のアイデアをプロトタイプにできる人になる','none'],['AI・新しいスキル','60歳でも新しいテクノロジーを楽しんでいる','none'],
 ['趣味・旅行・経験','モンサンミッシェルに行く','none'],['趣味・旅行・経験','写真を本格的な趣味にする','none'],['趣味・旅行・経験','自分の好きな写真100枚を残す','none'],['趣味・旅行・経験','コーヒーについて勉強する','none'],['趣味・旅行・経験','自分で豆を挽いて最高の一杯を作れるようになる','none'],['趣味・旅行・経験','得意料理を10品作る','none'],['趣味・旅行・経験','イタリア20州をできるだけ巡る','none'],['趣味・旅行・経験','イタリアの小さな町を50か所訪ねる','none'],
-['住まい・人生','理想の家の条件を完成させる','none'],['住まい・人生','3ベッドルーム以上の家へ引っ首す','none'],['住まい・人生','家を買うか賃貸を続けるか50代で結論を出す','none'],['住まい・人生','自分の書斎を持つ','none'],['住まい・人生','家の中を物の少ないホテルのような空間にする','none'],['住まい・人生','畳または小上がりのある空間を作る','none'],['住まい・人生','50歳の自分の写真を残す','none'],['住まい・人生','毎年同じ日に写真を撮り、50〜60歳の変化を残す','yearly'],['住まい・人生','60歳になった時、50代は人生で一番面白かったと言う','none']
+['住まい・人生','理想の家の条件を完成させる','none'],['住まい・人生','3ベッドルーム以上の家へ引っ越す','none'],['住まい・人生','家を買うか賃貸を続けるか50代で結論を出す','none'],['住まい・人生','自分の書斎を持つ','none'],['住まい・人生','家の中を物の少ないホテルのような空間にする','none'],['住まい・人生','畳または小上がりのある空間を作る','none'],['住まい・人生','50歳の自分の写真を残す','none'],['住まい・人生','毎年同じ日に写真を撮り、50〜60歳の変化を残す','yearly'],['住まい・人生','60歳になった時、50代は人生で一番面白かったと言う','none']
 ];
 
 const STORE='fifty_sixty_encrypted_v1', SALT='fifty_sixty_salt_v1'; let goals=[],active='すべて',sessionKey=null,pendingPhoto=''; const enc=new TextEncoder(),dec=new TextDecoder();
@@ -163,6 +163,69 @@ function render(){
 async function setStatus(id,status){const g=goals.find(x=>x.id===id);g.status=status;if(status!=='done'){g.doneDate='';g.achievementMemo='';g.photo=''}await save();render()}
 function refreshCategorySelects(){const currentGoal=goalCategory?.value||'';const opts=categories.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');if(goalCategory){goalCategory.innerHTML=opts;goalCategory.value=categories.includes(currentGoal)?currentGoal:(categories[0]||'')}}
 
+// --- カテゴリー管理機能 ---
+function renderCategoryManager(){
+  const el=document.getElementById('categoryList');
+  el.innerHTML=categories.map((c,i)=>{
+    const isFixed=c==='50歳の1年目';
+    const count=goals.filter(g=>g.category===c).length;
+    return `<div class="category-item">
+      <div class="category-name">${esc(c)}<span style="font-size:10px;color:var(--muted);margin-left:4px">(${count}件)</span></div>
+      <div class="category-actions">
+        <button type="button" onclick="moveCategory(${i},-1)" ${i===0||isFixed?'disabled':''}>↑</button>
+        <button type="button" onclick="moveCategory(${i},1)" ${i===categories.length-1||isFixed?'disabled':''}>↓</button>
+        <button type="button" onclick="editCategory(${i})" ${isFixed?'disabled':''}>編集</button>
+        <button type="button" class="danger" onclick="deleteCategory(${i})" ${isFixed?'disabled':''}>削除</button>
+      </div>
+    </div>`
+  }).join('');
+}
+
+async function moveCategory(index, direction){
+  const targetIndex = index + direction;
+  if(targetIndex < 0 || targetIndex >= categories.length) return;
+  const temp = categories[index];
+  categories[index] = categories[targetIndex];
+  categories[targetIndex] = temp;
+  await save(); render(); renderCategoryManager();
+}
+
+async function editCategory(i){
+  const oldName = categories[i];
+  if(oldName === '50歳の1年目') return;
+  const newName = prompt('カテゴリー名を編集してください:', oldName);
+  if(!newName) return;
+  const trimmed = newName.trim();
+  if(!trimmed || trimmed === oldName) return;
+  if(categories.includes(trimmed)){ alert('同じ名前のカテゴリーが既に存在します'); return; }
+  
+  categories[i] = trimmed;
+  goals.forEach(g=>{ if(g.category === oldName) g.category = trimmed; });
+  if(active === oldName) active = trimmed;
+  refreshCategorySelects(); await save(); render(); renderCategoryManager();
+}
+
+async function deleteCategory(i){
+  const name = categories[i];
+  if(name === '50歳の1年目') return;
+  const count = goals.filter(g=>g.category === name).length;
+  if(count > 0){
+    const choices = categories.filter(c=>c!==name);
+    const target = prompt(`「${name}」には${count}件の目標があります。\n削除する前に移動先のカテゴリー名を入力してください:\n(${choices.join(' / ')})`, choices[0]);
+    if(!target || !categories.includes(target) || target === name) {
+      alert('有効な移動先カテゴリーが指定されなかったため削除をキャンセルしました。');
+      return;
+    }
+    goals.forEach(g=>{ if(g.category === name) g.category = target; });
+  } else {
+    if(!confirm(`カテゴリー「${name}」を削除しますか？`)) return;
+  }
+  
+  categories.splice(i, 1);
+  if(active === name) active = 'すべて';
+  refreshCategorySelects(); await save(); render(); renderCategoryManager();
+}
+
 function openEdit(id){const g=id?goals.find(x=>x.id===id):null;refreshCategorySelects();dialogTitle.textContent=g?'目標を編集':'目標を追加';goalId.value=g?.id||'';goalTitle.value=g?.title||'';goalCategory.value=(g&&categories.includes(g.category))?g.category:(categories[0]||'');goalRepeat.value=g?.repeat||'none';goalNote.value=g?.note||'';goalDialog.showModal()}
 function openAchievement(id){const g=goals.find(x=>x.id===id);achievementId.value=id;achievementDate.value=g.doneDate||new Date().toISOString().slice(0,10);achievementMemo.value=g.achievementMemo||'';pendingPhoto=g.photo||'';photoPreview.src=pendingPhoto;photoPreview.style.display=pendingPhoto?'block':'none';achievementPhoto.value='';achievementDialog.showModal()}
 
@@ -185,7 +248,9 @@ achievementCancel.onclick=()=>achievementDialog.close();achievementForm.addEvent
 
 refreshCategorySelects();
 goalForm.addEventListener('submit',async e=>{e.preventDefault();const id=goalId.value,title=goalTitle.value.trim(),category=goalCategory.value,repeat=goalRepeat.value,note=goalNote.value.trim();if(!title)return;if(id){const g=goals.find(x=>x.id===id);Object.assign(g,{title,category,repeat,note})}else goals.push({id:crypto.randomUUID(),title,category,repeat,lastDone:'',note,status:'todo',doneDate:'',achievementMemo:'',photo:''});await save();goalDialog.close();render()});
-goalCancel.onclick=()=>goalDialog.close();categoryBtn.onclick=()=>document.getElementById('categoryDialog').showModal();addCategoryBtn.onclick=async()=>{const input=document.getElementById('newCategory'),name=input.value.trim();if(!name||categories.includes(name))return;categories.push(name);input.value='';refreshCategorySelects();await save();render();document.getElementById('categoryDialog').close()};categoryClose.onclick=()=>document.getElementById('categoryDialog').close();
+goalCancel.onclick=()=>goalDialog.close();
+categoryBtn.onclick=()=>{ renderCategoryManager(); document.getElementById('categoryDialog').showModal(); };
+addCategoryBtn.onclick=async()=>{const input=document.getElementById('newCategory'),name=input.value.trim();if(!name||categories.includes(name))return;categories.push(name);input.value='';refreshCategorySelects();await save();render();renderCategoryManager();};categoryClose.onclick=()=>document.getElementById('categoryDialog').close();
 addBtn.onclick=()=>openEdit();fab.onclick=()=>openEdit();search.oninput=render;unlockBtn.onclick=unlock;pin.addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});lockBtn.onclick=lock;exportBtn.onclick=exportCSV;
 
 if(!localStorage.getItem(SALT)){lockTitle.textContent='PINを設定';lockMsg.textContent='初回のみ、自分専用のPINを設定してください。6桁以上をおすすめします。'}else{lockTitle.textContent='ロック中';lockMsg.textContent='PINを入力してください。'}
