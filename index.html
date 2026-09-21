@@ -1,5 +1,5 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111827"><title>50→60 PROJECT</title>
-<link rel="manifest" href="data:application/manifest+json;utf8,%7B%22name%22%3A%2250%E2%86%9260%20PROJECT%22%2C%22short_name%22%3A%2250%E2%86%9260%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23111827%22%2C%22theme_color%22%3A%22%23111827%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2Cutf8%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20512%20512'%3E%3Crect%20width%3D'512'%20height%3D'512'%20rx%3D'100'%20fill%3D'%23111827'%2F%3E%3Ctext%20x%3D'50%25'%20y%3D'42%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%20fill%3D'%23facc15'%20font-size%3D'130'%20font-weight%3D'900'%20font-family%3D'sans-serif'%3E50%E2%86%9260%3C%2Ftext%3E%3Ctext%20x%3D'50%25'%20y%3D'72%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%20fill%3D'%23ffffff'%20font-size%3D'55'%20font-weight%3D'700'%20font-family%3D'sans-serif'%3EPROJECT%3C%2Ftext%3E%3C%2Fsvg%3E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
+<link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='100' fill='%23111827'/><text x='50%' y='42%' dominant-baseline='middle' text-anchor='middle' fill='%23facc15' font-size='130' font-weight='900' font-family='sans-serif'>50→60</text><text x='50%' y='72%' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-size='55' font-weight='700' font-family='sans-serif'>PROJECT</text></svg>">
 <style>
 :root{--bg:#f5f7fb;--card:#fff;--text:#111827;--muted:#6b7280;--line:#e5e7eb;--ok:#166534;--warn:#a16207;--idle:#64748b}*{box-sizing:border-box}html,body{height:100%;margin:0}body{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;background:var(--bg);color:var(--text);overflow:hidden}.app{height:100dvh;display:flex;flex-direction:column;overflow:hidden}
@@ -43,6 +43,14 @@ dialog{border:0;border-radius:16px;width:min(92vw,480px);padding:0;box-shadow:0 
 <dialog id="achievementDialog"><form method="dialog" class="modal" id="achievementForm"><h3>🏆 達成記録を残す</h3><input type="hidden" id="achievementId"><div class="field"><label>達成日</label><input id="achievementDate" type="date" required></div><div class="field"><label>一言メモ</label><textarea id="achievementMemo" rows="2" placeholder="どんな気持ちだったか、記録しておきたいこと"></textarea></div><div class="field"><label>写真</label><input id="achievementPhoto" type="file" accept="image/*"><img id="photoPreview" class="preview" alt="写真プレビュー"></div><div class="modal-actions"><button type="button" id="achievementCancel">キャンセル</button><button id="achievementSave" class="btn" value="default">達成として保存</button></div></form></dialog>
 
 <script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    const swCode = `self.addEventListener('fetch', e => e.respondWith(fetch(e.request)));`;
+    const blob = new Blob([swCode], {type: 'application/javascript'});
+    navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
+  });
+}
+
 const categories=['50歳の1年目','健康・身体','心・生活習慣','妻・夫婦','娘たち','お金・資産形成','仕事','副収入・第二の仕事','AI・新しいスキル','趣味・旅行・経験','住まい・人生'];
 const seed=[
 ['健康・身体','ボクシングを最低週に一度は継続する','weekly'],['健康・身体','週4回のジム運動習慣を維持する','weekly'],['健康・身体','年1回健康診断を受ける','yearly'],['健康・身体','60歳でも10kmを走れる身体を作る','none'],['健康・身体','10km大会に出場する','none'],['健康・身体','10kmを60分以内で走る','none'],['健康・身体','懸垂10回を達成する','none'],['健康・身体','腹筋が見える身体を一度作る','none'],['健康・身体','ハイキングを趣味にする','none'],['健康・身体','酒に支配されない生活を作る','none'],
@@ -102,7 +110,6 @@ function render(){
   renderFilters();
   const q=document.getElementById('search').value.trim().toLowerCase();
   
-  // Routine Area
   const routineArea=document.getElementById('routineArea');
   const routines=goals.filter(g=>g.repeat && g.repeat!=='none');
   if(routines.length && active==='すべて' && !q){
